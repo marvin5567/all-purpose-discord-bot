@@ -63,7 +63,8 @@ async def my_command_function(ctx: SlashContext):
     scopes=[guild]
 )
 async def ping(ctx: SlashContext):
-    await ctx.send(bot.latency * 1000) # random command
+    await ctx.send(f"ping: {bot.latency * 1000}") # random command
 
 bot.load_extension("cogs.stock") # loading stock cog
+bot.load_extension("cogs.vc") # loading vc cog
 bot.start() # starts bot

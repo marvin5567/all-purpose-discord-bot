@@ -8,7 +8,7 @@ class stock(Extension):
     with open('guildToken.txt', 'r') as file:
         guild = file.read()
 
-    @listen
+    @listen()
     async def on_ready():
         print("stock cog ready")
 
