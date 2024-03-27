@@ -43,7 +43,7 @@ async def meo(ctx: SlashContext):
     opt_type=OptionType.INTEGER
 )
 async def num(ctx: SlashContext, integer_option: int):
-    await ctx.send(f"wow i like the number: {integer_option}")
+    await ctx.send(f"wow i like the number: {integer_option}") # command testing out command options
 
 @slash_command(
     name="base",
@@ -55,7 +55,7 @@ async def num(ctx: SlashContext, integer_option: int):
     scopes=[guild]
 )
 async def my_command_function(ctx: SlashContext):
-    await ctx.send("Hello World")
+    await ctx.send("Hello World") # sub function
 
 @slash_command(
     name="ping",
@@ -63,6 +63,7 @@ async def my_command_function(ctx: SlashContext):
     scopes=[guild]
 )
 async def ping(ctx: SlashContext):
-    await ctx.send(bot.latency * 1000)
+    await ctx.send(bot.latency * 1000) # random command
 
+bot.load_extension("cogs.stock") # loading stock cog
 bot.start() # starts bot
