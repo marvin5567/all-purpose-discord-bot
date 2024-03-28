@@ -1,8 +1,9 @@
 from interactions import Extension, slash_command, SlashContext
 from interactions import Client, Intents, listen
 from interactions import Button, ButtonStyle
+from interactions import Embed
 import interactions
-import pandas as ps
+import pandas
 import yfinance as yf
 
 class stock(Extension):
@@ -20,10 +21,7 @@ class stock(Extension):
             scopes=[guild]
     )
     async def stock_definitions(self, ctx: SlashContext):
-        """
-        embed = interactions.Embed(
-            color=interactions.Color.gold()
-        )
+        embed = Embed()
 
         embed.set_author(name='Stock Definitions')
         embed.add_field(name='Open', value='the price the stock opened at', inline=False)
@@ -32,18 +30,8 @@ class stock(Extension):
         embed.add_field(name='Close', value='the closing price on the trading day', inline=False)
         embed.add_field(name='Volume', value='how many shares were traded')
         embed.set_footer(text='you are hot for using this bot <3')
-        """
         
-        await ctx.send("""
--Open - the price the stock opened at
-
--High - the highest price during the day
-
--Low - the lowest price during the day
-
--Close - the closing price on the trading day
-
--Volume - how many shares were traded""")
+        await ctx.send(embeds=embed)
     
     @slash_command(
         name="apple_stock",
@@ -51,9 +39,43 @@ class stock(Extension):
         scopes=[guild]
     )
     async def apple_stock(self, ctx: SlashContext):
+        FAANG = [
+        Button(
+            style=ButtonStyle.BLUE,
+            label="Facebook (Meta)",
+            custom_id="metaStockButton",
+            disabled=False
+        ),
+        Button(
+            style=ButtonStyle.GREEN,
+            label="Amazon",
+            custom_id="amazonStockButton",
+            disabled=False
+        ),
+        Button(
+            style=ButtonStyle.GREEN,
+            label="Apple",
+            custom_id="appleStockButton",
+            disabled=False
+        ),
+        Button(
+            style=ButtonStyle.GREEN,
+            label="Netflix",
+            custom_id="netflixStockButton",
+            disabled=False
+        ),
+        Button(
+            style=ButtonStyle.GREEN,
+            label="Google (Alphabet)",
+            custom_id="googleStockButton",
+            disabled=False
+        )
+        ]
+
+    
         # get stock data
         stock = yf.Ticker("AAPL")
         # get market data
-        data = stock.history(period="5d")  
+        data = stock.history(period="1d")  
         # 5 days period, can be '1d', '5d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y', 'ytd', 'max'
         await ctx.send(data.to_string(index=False))

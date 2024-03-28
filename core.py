@@ -21,6 +21,10 @@ bot = Client(intents=Intents.DEFAULT, token=token) # defines the bot using the t
 async def on_ready(): # when the bot is ready
     print("Bot is ready!")
 
+@bot.event
+async def on_start():
+    await bot.change_presence(interactions.ClientPresence(activities=[interactions.PresenceActivity(name='/help', type=interactions.PresenceActivityType.WATCHING)]))
+
 @slash_command(
     name="meow",
     description="first command woo",
@@ -183,5 +187,5 @@ async def AI_help_button(ctx: ComponentContext):
     # await ctx.send(embeds=embed)
     
 
-bot.load_extensions("cogs.stock") # loading stock cog
+bot.load_extension("cogs.stock") # loading stock cog
 bot.start() # starts bot
