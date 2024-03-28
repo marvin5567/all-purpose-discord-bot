@@ -1,5 +1,7 @@
 from interactions import Extension, slash_command, SlashContext
 from interactions import Client, Intents, listen
+from interactions import Button, ButtonStyle
+import interactions
 import pandas as ps
 import yfinance as yf
 
@@ -13,11 +15,25 @@ class stock(Extension):
         print("stock cog ready")
 
     @slash_command(
-            name="stock_defenitions",
+            name="stock_definitions",
             description="shows basic stock defenitions",
             scopes=[guild]
     )
-    async def stock_defenitions(self, ctx: SlashContext):
+    async def stock_definitions(self, ctx: SlashContext):
+        """
+        embed = interactions.Embed(
+            color=interactions.Color.gold()
+        )
+
+        embed.set_author(name='Stock Definitions')
+        embed.add_field(name='Open', value='the price the stock opened at', inline=False)
+        embed.add_field(name='High',value='the highest price during the day',inline=False)
+        embed.add_field(name='Low', value='the lowest price during the day', inline=False)
+        embed.add_field(name='Close', value='the closing price on the trading day', inline=False)
+        embed.add_field(name='Volume', value='how many shares were traded')
+        embed.set_footer(text='you are hot for using this bot <3')
+        """
+        
         await ctx.send("""
 -Open - the price the stock opened at
 
