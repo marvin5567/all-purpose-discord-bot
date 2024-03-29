@@ -72,7 +72,7 @@ class stock(Extension):
     
     @slash_command(
         name="stocks",
-        description="shows you apple's stock",
+        description="shows you stock data",
         scopes=[guild]
     )
     async def stocks(self, ctx: SlashContext):
@@ -90,13 +90,13 @@ class stock(Extension):
             disabled=False
         ),
         Button(
-            style=ButtonStyle.GREEN,
+            style=ButtonStyle.GREY,
             label="Apple",
             custom_id="appleStockButton",
             disabled=False
         ),
         Button(
-            style=ButtonStyle.GREEN,
+            style=ButtonStyle.RED,
             label="Netflix",
             custom_id="netflixStockButton",
             disabled=False

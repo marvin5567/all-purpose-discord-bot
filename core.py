@@ -162,6 +162,7 @@ async def stocks_help_button(ctx: ComponentContext):
 
     embed.set_author(name="Stock Commands")
     embed.add_field(name="/stock_definitions", value='provides general definitions on stock data', inline=False)
+    embed.add_field(name="/stocks", value='provides data on stocks', inline=False)
     embed.set_footer(text='get your money up 🤑')
 
     await ctx.send(embeds=embed, components=components)
