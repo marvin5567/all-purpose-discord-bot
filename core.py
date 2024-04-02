@@ -97,6 +97,12 @@ async def help(ctx: SlashContext):
         label="VC",
         custom_id="vcHelpButton",
         disabled=False
+    ),
+    Button(
+        style=ButtonStyle.BLURPLE,
+        label="Ethical Hacking",
+        custom_id="ehHelpButton",
+        disabled=False
     )
     ]
 
@@ -121,6 +127,12 @@ async def misc_help_button(ctx: ComponentContext):
         style=ButtonStyle.BLURPLE,
         label="VC",
         custom_id="vcHelpButton",
+        disabled=False
+    ),
+    Button(
+        style=ButtonStyle.BLURPLE,
+        label="Ethical Hacking",
+        custom_id="ehHelpButton",
         disabled=False
     )
     ]
@@ -155,6 +167,12 @@ async def stocks_help_button(ctx: ComponentContext):
             label="VC",
             custom_id="vcHelpButton",
             disabled=False
+        ),
+        Button(
+        style=ButtonStyle.BLURPLE,
+        label="Ethical Hacking",
+        custom_id="ehHelpButton",
+        disabled=False
         )
         ]
 
@@ -174,6 +192,43 @@ async def vc_help_button(ctx: ComponentContext):
 @component_callback("AIHelpButton")
 async def AI_help_button(ctx: ComponentContext):
     await ctx.send("working in progress :warning:")
+
+@component_callback("ehHelpButton")
+async def eh_help_button(ctx: ComponentContext):
+    components= [
+        Button(
+            style=ButtonStyle.GRAY,
+            label="Misc",
+            custom_id="miscHelpButton",
+            disabled=False
+        ),
+        Button(
+            style=ButtonStyle.BLUE,
+            label="AI",
+            custom_id="AIHelpButton",
+            disabled=False
+        ),
+        Button(
+            style=ButtonStyle.BLURPLE,
+            label="VC",
+            custom_id="vcHelpButton",
+            disabled=False
+        ),
+        Button(
+        style=ButtonStyle.GREEN,
+        label="Stocks",
+        custom_id="stocksHelpButton",
+        disabled=False
+        )
+        ]
+
+    embed = Embed()
+
+    embed.set_author(name="Ethical Hacking Commands")
+    embed.add_field(name="/sherlock", value='searches the internet for all accounts linked to the username you provide', inline=False)
+    embed.set_footer(text='hey Joe Goldberg')
+
+    await ctx.send(embeds=embed, components=components)
 
 
     # embed = Embed()
