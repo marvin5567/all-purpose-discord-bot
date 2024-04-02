@@ -139,9 +139,9 @@ async def misc_help_button(ctx: ComponentContext):
 async def stocks_help_button(ctx: ComponentContext):
     components= [
         Button(
-            style=ButtonStyle.GREEN,
-            label="Stocks",
-            custom_id="stocksHelpButton",
+            style=ButtonStyle.GRAY,
+            label="Misc",
+            custom_id="miscHelpButton",
             disabled=False
         ),
         Button(
