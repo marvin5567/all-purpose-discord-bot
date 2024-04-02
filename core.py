@@ -189,4 +189,5 @@ async def AI_help_button(ctx: ComponentContext):
     
 
 bot.load_extension("cogs.stock") # loading stock cog
+bot.load_extension("cogs.ethicalHacking") # loading stock cog
 bot.start() # starts bot
