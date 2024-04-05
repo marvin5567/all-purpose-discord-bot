@@ -75,12 +75,6 @@ async def ping(ctx: SlashContext):
 async def help(ctx: SlashContext):
     components = [
     Button(
-        style=ButtonStyle.GRAY,
-        label="Misc",
-        custom_id="miscHelpButton",
-        disabled=False
-    ),
-    Button(
         style=ButtonStyle.GREEN,
         label="Stocks",
         custom_id="stocksHelpButton",
@@ -103,6 +97,12 @@ async def help(ctx: SlashContext):
         label="Ethical Hacking",
         custom_id="ehHelpButton",
         disabled=False
+    ),
+    Button(
+            style=ButtonStyle.GRAY,
+            label="Misc",
+            custom_id="miscHelpButton",
+            disabled=False
     )
     ]
 
@@ -151,12 +151,6 @@ async def misc_help_button(ctx: ComponentContext):
 async def stocks_help_button(ctx: ComponentContext):
     components= [
         Button(
-            style=ButtonStyle.GRAY,
-            label="Misc",
-            custom_id="miscHelpButton",
-            disabled=False
-        ),
-        Button(
             style=ButtonStyle.BLUE,
             label="AI",
             custom_id="AIHelpButton",
@@ -173,7 +167,13 @@ async def stocks_help_button(ctx: ComponentContext):
         label="Ethical Hacking",
         custom_id="ehHelpButton",
         disabled=False
-        )
+        ),
+        Button(
+            style=ButtonStyle.GRAY,
+            label="Misc",
+            custom_id="miscHelpButton",
+            disabled=False
+        ),
         ]
 
     embed = Embed()
@@ -197,12 +197,6 @@ async def AI_help_button(ctx: ComponentContext):
 async def eh_help_button(ctx: ComponentContext):
     components= [
         Button(
-            style=ButtonStyle.GRAY,
-            label="Misc",
-            custom_id="miscHelpButton",
-            disabled=False
-        ),
-        Button(
             style=ButtonStyle.BLUE,
             label="AI",
             custom_id="AIHelpButton",
@@ -219,7 +213,13 @@ async def eh_help_button(ctx: ComponentContext):
         label="Stocks",
         custom_id="stocksHelpButton",
         disabled=False
-        )
+        ),
+        Button(
+            style=ButtonStyle.GRAY,
+            label="Misc",
+            custom_id="miscHelpButton",
+            disabled=False
+        ),
         ]
 
     embed = Embed()
