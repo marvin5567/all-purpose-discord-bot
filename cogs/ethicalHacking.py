@@ -44,16 +44,28 @@ class ethicalHacking(Extension):
         file1 = open(username+'.txt', 'r')
         Lines = file1.readlines()
 
-        for count, line in enumerate(Lines): # loop through text files
-            if count == len(Lines): # this is to void the last line in the text file
-                break
-            else:
-                embed.add_field(name=str(count + 1), value=line.strip(), inline=False)
-            
+        if len(Lines) > 25:
+            embed_extra = Embed()
+            embed_extra_one = Embed()
+            for count, line in enumerate(Lines):
+                if count < 25:
+                    embed.add_field(name=str(count + 1), value=line.strip(), inline=False)
+                if count >= 25:
+                    embed_extra.add_field(name=str(count + 1), value=line.strip(), inline=False)
+                if count >= 50:
+                    embed_extra_one.add_field(name=str(count + 1), value=line.strip(), inline=False)
+            await msg.edit(embeds=embed)
+            await msg.edit(embeds=embed_extra)
+            await msg.edit(embeds=embed_extra_one)
 
-        embed.set_author(name=f"{username}'s accounts")
+        else:
+            for count, line in enumerate(Lines): # loop through text files
+                if count == len(Lines): # this is to void the last line in the text file
+                    break
+                else:
+                    embed.add_field(name=str(count + 1), value=line.strip(), inline=False)
+            await msg.edit(embeds=embed)
 
-        await msg.edit(embeds=embed)
         await ctx.send(ctx.author.mention + " done!")
 
         os.chdir(current_directory) # cleaning up process by going back to root directory
