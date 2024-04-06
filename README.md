@@ -23,10 +23,20 @@ this is a W.I.P. portfolio project, so if you're watching this hello! i apprecia
 
 
 ### Stocks
-to be filled
+`/stock_definitions`
+
+simply provides definitions on the values that `/stocks` provides
+
+`/stocks`
+
+provides stock data on stocks the user selects; at the moment there are only 5 stocks, which are FAANG stocks. the plan is to provide up to 25 stocks in different industries as well as an option to select different time periods.
 
 ## Ethical Hacking Features
 - [sherlock (username colleciton)](#sherlock)
 
 ### sherlock
-to be filled
+**discord usage:** `/sherlock {username}`
+
+this will get all the accounts linked to the username the user has provided
+
+*note: this command is kinda limited at the moment since i'm still figuring out a way to provide more than 25 accounts in an embed due to discord's 25 field limit*
